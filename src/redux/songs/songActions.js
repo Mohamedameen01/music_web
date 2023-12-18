@@ -31,8 +31,8 @@ export const fetchSongs = () => {
       dispatch(fetchSongRequest())
       axios.request(options)
       .then(response => {
-        console.log(response.data);
-        dispatch(fetchSongSuccess(response.data))
+        console.log(response.data.tracks);
+        dispatch(fetchSongSuccess(response.data.tracks))
       })
       .catch(error => {
         console.error(error);

@@ -4,7 +4,7 @@ import Discover from './pages/Discover'
 
 function App() {
   return (
-    <div className='px-6 h-[100vh] bg-gradient-to-br from-black to-[#121286]'> 
+    <div className='px-6 min-h-[100vh] h-100 bg-gradient-to-br from-black to-[#121286]'> 
       <Routes>
         <Route path='/' element={<Discover /> } />
       </Routes>

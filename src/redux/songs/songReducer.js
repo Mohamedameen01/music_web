@@ -1,4 +1,8 @@
-import { FETCH_SONG_FAILURE, FETCH_SONG_REQUEST, FETCH_SONG_SUCCESS } from "./songTypes"
+import { 
+  FETCH_SONG_FAILURE,
+  FETCH_SONG_REQUEST,
+  FETCH_SONG_SUCCESS 
+} from "./songTypes"
 
 const initialState = {
     loading: false,
@@ -28,4 +32,5 @@ const songReducer = (state = initialState, action) => {
     default: return state    
   }
 }
+
 export default songReducer;
