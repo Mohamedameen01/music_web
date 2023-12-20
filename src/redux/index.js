@@ -2,7 +2,9 @@ export {
     fetchSongRequest,
     fetchSongSuccess,
     fetchSongFailure,
-    fetchSongs
+    fetchSongs,
+    playPause,
+    setActiveSong
 } from "./songs/songActions";
 
 export const options = {

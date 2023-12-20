@@ -7,7 +7,7 @@ import Loader from '../components/Loader'
 
 function Discover() {
   const dispatch = useDispatch()
-  const {loading, error} = useSelector((state) =>  state.songData)
+  const {loading, error, songs, activeSong} = useSelector((state) =>  state.songData)
   
   useEffect(()=> {
     dispatch(fetchSongs())
@@ -18,7 +18,16 @@ function Discover() {
   return (
     <div>
       <Header />
-      <SongCards />
+      <div className='flex flex-wrap sm:justify-start justify-center gap-8'>
+        {songs?.map(song => (
+          <SongCards 
+           key={song.key}
+           song={song}
+           activeSong={activeSong}
+          />
+        ))
+        }
+      </div>
     </div>
   )
 }

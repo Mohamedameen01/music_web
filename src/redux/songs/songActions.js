@@ -2,29 +2,47 @@ import axios from "axios"
 import { 
     FETCH_SONG_FAILURE,
     FETCH_SONG_REQUEST,
-    FETCH_SONG_SUCCESS
+    FETCH_SONG_SUCCESS,
+    PLAY_PAUSE_SONG,
+    SET_ACTIVE_SONG,
+    
 } from "./songTypes"
 import {options} from '../index'
 
 export const fetchSongRequest = () => {
-    return{
+    return {
         type: FETCH_SONG_REQUEST
     }
 }
 
 export const fetchSongSuccess = (songs) => {
-    return{
+    return {
         type: FETCH_SONG_SUCCESS,
         payload: songs
     }
 }
 
 export const fetchSongFailure = (error) => {
-    return{
+    return {
         type: FETCH_SONG_FAILURE,
         payload:error
     }
 }
+
+export const playPause = (status) => {
+    return {
+        type: PLAY_PAUSE_SONG,
+        payload: status
+    }
+}
+
+export const setActiveSong = (song) => {
+    return {
+        type: SET_ACTIVE_SONG,
+        payload: song
+    }
+}
+
 
 export const fetchSongs = () => {
     return (dispatch) => {
