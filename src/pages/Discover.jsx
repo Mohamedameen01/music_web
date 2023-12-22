@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react'
-import Header from '../components/Header'
-import SongCards from '../components/SongCards'
+import {
+  Header,
+  SongCards,
+  Loader,
+  Error
+} from '../components'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSongs } from '../redux'
-import Loader from '../components/Loader'
 
 function Discover() {
   const dispatch = useDispatch()
@@ -19,11 +22,13 @@ function Discover() {
     <div>
       <Header />
       <div className='flex flex-wrap sm:justify-start justify-center gap-8'>
-        {songs?.map(song => (
+        {songs?.map((song, i) => (
           <SongCards 
            key={song.key}
            song={song}
            activeSong={activeSong}
+           songs={songs}
+           i={i}
           />
         ))
         }

@@ -4,7 +4,9 @@ export {
     fetchSongFailure,
     fetchSongs,
     playPause,
-    setActiveSong
+    setActiveSong,
+    playNextSong,
+    playPrevSong
 } from "./songs/songActions";
 
 export const options = {

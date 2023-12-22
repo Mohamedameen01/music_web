@@ -2,17 +2,20 @@ import {
   FETCH_SONG_FAILURE,
   FETCH_SONG_REQUEST,
   FETCH_SONG_SUCCESS, 
+  PLAY_NEXT_SONG,
+  PLAY_PREV_SONG, 
   PLAY_PAUSE_SONG,
   SET_ACTIVE_SONG
 } from "./songTypes"
 
 const initialState = {
-    loading: false,
-    songs: [],
-    error: '',
-    isActive: false,
-    isPlaying: false,
-    activeSong: {}
+  loading: false,
+  songs: [],
+  error: '',
+  isActive: false,
+  isPlaying: false,
+  activeSong: {},
+  currentIndex: 0
 }
 
 const songReducer = (state = initialState, action) => {
@@ -42,7 +45,23 @@ const songReducer = (state = initialState, action) => {
     case SET_ACTIVE_SONG:
       return {
         ...state,
-        activeSong: action.payload
+        activeSong: action.payload.song,
+        isActive: true,
+        currentIndex: action.payload.i
+      }
+    case PLAY_NEXT_SONG:
+      return {
+        ...state,
+        activeSong: state.songs[action.payload],
+        currentIndex: action.payload,
+        isActive: true
+      }
+    case PLAY_PREV_SONG:
+      return {
+        ...state,
+        activeSong: state.songs[action.payload],
+        currentIndex: action.payload,
+        isActive: true
       }
     default: return state    
   }

@@ -4,13 +4,13 @@ import PlayPause from './PlayPause'
 import { Link } from 'react-router-dom'
 import { playPause, setActiveSong } from '../redux'
 
-function SongCards({song,activeSong}) {
+function SongCards({song, activeSong, songs, i}) {
 
   const {isPlaying} = useSelector(state => state.songData)
   const dispatch = useDispatch()
 
   const handlePlay = () => {
-    dispatch(setActiveSong(song))
+    dispatch(setActiveSong({song, i}))
     dispatch(playPause(true))
   }
   const handlePause = () => {
@@ -22,7 +22,8 @@ function SongCards({song,activeSong}) {
       <div className='relative w-full h-56 group'>
         <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50
           group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70'
-          : 'hidden'}`}>
+          : 'hidden'}`}
+        >
           <PlayPause 
             song={song}
             handlePause={handlePause}
